@@ -15,7 +15,7 @@
                             <label for="">Search</label>
                             <input wire:model="search" type="search" class="form-control" name="" id="" value=""
                                 placeholder="Cari Pasien (Nama Pasien)">
-                            @foreach($posts as $post)
+                            @foreach($dasoss as $post)
                             <li>{{ $post->name }}</li>
                             @endforeach
                         </div>

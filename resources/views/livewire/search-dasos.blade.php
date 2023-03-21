@@ -1,5 +1,7 @@
 <div>
-    @foreach($item as $post)
+    @foreach($dasoss as $post)
     <li>{{ $post->name }}</li>
     @endforeach
+
+    {{ $dasoss->links() }}
 </div>

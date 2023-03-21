@@ -23,8 +23,8 @@ class Searchdasos extends Component
                 ->latest()
                 ->paginate(5);
         }
-        return view('livewire.searchdasos',  [
-            'item' => $dasos,
+        return view('main-regRajal',  [
+            'dasoss' => $dasos,
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\vdasos;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,18 @@ class HomeController extends Controller
     public function tes()
     {
         return view('livewire.searchdasos');
+    }
+
+    public function searchMR(Request $request)
+    {
+        // $result = vdasos::where('nama', 'like', '%' . $request . '%')->get();
+        // return view('Main.regRajal', ['result' => $result]);
+        // dd($result);
+
+        $cari = $request;
+        $data = vdasos::select('nama')->where('nama', 'like', '%' . $request->get('query') . '%')->get();
+        return response()->json($data);
+        // dd($data);
     }
     /**
      * Show the form for creating a new resource.

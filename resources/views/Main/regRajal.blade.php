@@ -11,20 +11,91 @@
             <div class="container-fluid">
                 <div class="card-body">
                     <div class="row mb-2">
-                        <div class="col-sm mb-3">
-                            <label for="">Search</label>
-                            <input wire:model="search" type="search" class="form-control" name="" id="" value=""
-                                placeholder="Cari Pasien (Nama Pasien)">
-                            @foreach($dasoss as $post)
-                            <li>{{ $post->name }}</li>
-                            @endforeach
+                        <div class="col-sm mb-2">
+                            {{-- <livewire:dasos-search></livewire:dasos-search> --}}
+                            <button type="button" class="btn btn-primary float-right" data-toggle="modal"
+                                data-target="#searchMR"> Search MR</button>
                         </div>
                     </div>
+
+                    {{-- Modal Search MR --}}
+                    <div class="modal fade" id="searchMR" tabindex="-1" aria-labelledby="searchMR" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pencarian Data Rekam Medis</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                {{-- <div class="modal-body">
+                                    <form method="post" action="{{route('searchMR')}}">
+                                        @csrf
+                                        <div class="mb-2">
+                                            <label for="recipient-name" class="col-form-label">Nama:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="message-text" class="col-form-label">Alamat:</label>
+                                            <textarea class="form-control" id="message-text"></textarea>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="recipient-name" class="col-form-label">No Identitas:</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <table class="table table-stripped mt-3">
+                                            <thead>
+                                                <th>No.MR</th>
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>kunjungan Terakhir</th>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($result as $item)
+                                                <td>{{$item->mr}}</td>
+                                                <td>{{$item->nama}}</td>
+                                                <td>{{$item->alamat}}</td>
+                                                <td></td>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                </div> --}}
+                                <input class="typeahead form-control" id="cari" type="text">
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Cari <i
+                                            class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Modal Search MR --}}
 
 
                     <h5 class="card-header text-center"></h5>
 
                     <div class="row mb-2 mt-3">
+                        {{-- <select class="typeahead form-control" style="width:500px;" name="cari" id="cari"></select>
+                        --}}
+                        <input type="search" id="cari" name="cari" data-provide="typeahead" placeholder="Search"
+                            class="typeahead form-control" />
+
+                        <script type="text/javascript">
+                            var route = "{{ url('searchMR') }}";
+                      
+                                                $('#cari').typeahead({
+                                                        source: function (query, process) {
+                                                            return $.get(route, {
+                                                                query: query
+                                                            }, function (data) {
+                                                                return process(data);
+                                                            });
+                                                        }
+                                                    });
+                    
+                        </script>
+
                         <div class="col-sm-4 mb-3">
                             <label for="">Kode Registrasi</label>
                             <input type="text" class="form-control" name="" id="" value="" placeholder="Otomatis">

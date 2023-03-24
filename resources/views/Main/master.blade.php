@@ -43,7 +43,17 @@
     <link rel="stylesheet" href="{{ asset ('asset/css/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset ('asset/css/genQR.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="{{ asset ('asset/js/bootstrap3-typeahead.min.js') }}">
+    </script>
+    <script src="{{ asset ('asset/js/typeahead.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+    </script>
+
+
     {{--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -230,12 +240,13 @@
 
 
         <!-- jQuery -->
-        <script src="{{ asset ('asset/dashboard/plugins/jquery/jquery.min.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js"
+            integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jQuery/3.3.1/jQuery.min.js">
+        </script>
+        {{-- <script src="{{ asset ('asset/dashboard/plugins/jquery/jquery.min.js') }}"></script> --}}
         <!-- Bootstrap 4 -->
         <script src="{{ asset ('asset/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
         <!-- DataTables  & Plugins -->
         <script src="{{ asset ('asset/dashboard/plugins/datatables/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -245,9 +256,6 @@
         </script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-        <script src="{{ asset ('asset/dashboard/plugins/jszip/jszip.min.js') }}"></script>
-        <script src="{{ asset ('asset/dashboard/plugins/pdfmake/pdfmake.min.js') }}"></script>
-        <script src="{{ asset ('asset/dashboard/plugins/pdfmake/vfs_fonts.js') }}"></script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
         <script src="{{ asset ('asset/dashboard/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
@@ -256,9 +264,12 @@
         <script src="{{ asset ('asset/js/sweetalert2.all.js') }}"></script>
         <script src="{{ asset ('asset/js/sweetalert2.all.min.js') }}"></script>
         <script src="{{ asset ('asset/js/autodate.js') }}"></script>
+        <script src="{{ asset ('asset/js/bootstrap3-typeahead.min.js') }}"></script>
         <script src="{{ asset ('asset/js/typeahead.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js">
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+        {{-- <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js">
+            --}}
         </script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">

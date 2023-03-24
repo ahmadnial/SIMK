@@ -36,10 +36,18 @@ class HomeController extends Controller
         // return view('Main.regRajal', ['result' => $result]);
         // dd($result);
 
-        $cari = $request;
-        $data = vdasos::select('nama')->where('nama', 'like', '%' . $request->get('query') . '%')->get();
+        // if ($request->has('term')) {
+        //     return vdasos::where('nama', 'like', '%' . $request->input('term') . '%')->get();
+        // }
+
+
+        $query = $request->get('term');
+        $data = vdasos::select('nama')->where('nama', 'like', '%' . $query . '%')->pluck('nama');
         return response()->json($data);
         // dd($data);
+        // return view('Main.regRajal', [
+        //     'data1' => '$data'
+        // ]);
     }
     /**
      * Show the form for creating a new resource.

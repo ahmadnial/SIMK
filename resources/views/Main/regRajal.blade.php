@@ -59,7 +59,7 @@
                                             </tbody>
                                         </table>
                                 </div> --}}
-                                <input class="typeahead form-control" id="cari" type="text">
+                                {{-- <input class="typeahead form-control" id="" type="text"> --}}
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,23 +78,73 @@
                     <div class="row mb-2 mt-3">
                         {{-- <select class="typeahead form-control" style="width:500px;" name="cari" id="cari"></select>
                         --}}
-                        <input type="search" id="cari" name="cari" data-provide="typeahead" placeholder="Search"
-                            class="typeahead form-control" />
+                        <input type="search" id="cari2" name="cari2" data-provide="typeahead" placeholder="Search"
+                            class="typeahead form-control" autofocus />
 
                         <script type="text/javascript">
                             var route = "{{ url('searchMR') }}";
-                      
-                                                $('#cari').typeahead({
-                                                        source: function (query, process) {
-                                                            return $.get(route, {
-                                                                query: query
-                                                            }, function (data) {
-                                                                return process(data);
-                                                            });
-                                                        }
-                                                    });
+                                 $('#cari2').typeahead({
+                                    source: function (query, process) {
+                                    return $.get(route, {
+                                     term: query
+                                    }, function (data) {
+                                    return process(data);
+                                        });
+                                        }
+                                    });
+
+                                    
+                                    $(document).ready(function(){
+                                    $("#cari2").on("keypress", function(e){
+                                    if(e.which == 13)
+                                    {
+                                        var nama = $("#cari2").val();
+                                    // alert(nama);
+                                        $.ajax ({
+                                            url : '{{ url('selectMR')}}',
+                                            data : 'cari2='+cari2,
+                                            success : function (data) {
+                                                alert('tes');
+                                            }
+                                        })
+                                    }
+                                    });
+                                });
+                                // function autofill() {
+                                //     var nama = $("#cari2").val();
+                                //     alert(nama);
+                                // }
                     
                         </script>
+                        {{-- <script>
+                            $(function () {
+                                        $('#cari').autocomplete({
+                                            source:function(request,response){
+                                            
+                                                $.getJSON('?term='+request.term,function(data){
+                                                    var array = $.map(data,function(row){
+                                                        return {
+                                                            value:row.mr,
+                                                            label:row.nama,
+                                                            nama:row.nama,
+                                                            alamat:row.alamat,
+                                                            tempat_lahir:row.tempat_lahir
+                                                        }
+                                                    })
+                            
+                                                    response($.ui.autocomplete.filter(array,request.term));
+                                                })
+                                            },
+                                            minLength:1,
+                                            delay:500,
+                                            select:function(event,ui){
+                                                $('#nama').val(ui.item.nama)
+                                                $('#mr').val(ui.item.mr)
+                                                $('#tempat_lahir').val(ui.item.tempat_lahir)
+                                            }
+                                        })
+                            })
+                        </script> --}}
 
                         <div class="col-sm-4 mb-3">
                             <label for="">Kode Registrasi</label>
@@ -102,23 +152,24 @@
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Nama</label>
-                            <input type="text" class="form-control" name="" id="" value="" placeholder="Otomatis">
+                            <input type="text" class="form-control" name="nama" id="nama" value=""
+                                placeholder="Otomatis">
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">No.RM</label>
-                            <input type="text" class="form-control" name="" id="" value="" placeholder="Otomatis">
+                            <input type="text" class="form-control" name="mr" id="mr" value="" placeholder="Otomatis">
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Tanggal</label>
-                            <input type="date" class="form-control" name="" id="" value="">
+                            <input type="date" class="form-control" name="" id="" value="" tglNow>
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Jam</label>
-                            <input type="time" class="form-control" name="" id="" value="">
+                            <input type="time" class="form-control" name="" id="" value="" JamNow>
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Alamat</label>
-                            <textarea class="form-control" name="" id="" cols="30" rows="1"></textarea>
+                            <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="1"></textarea>
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Jenis Kelamin</label>
@@ -126,7 +177,7 @@
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Tempat Lahir</label>
-                            <input type="text" class="form-control" name="" id="" value="">
+                            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" value="">
                         </div>
                         <div class="col-sm-4 mb-3">
                             <label for="">Tanggal Lahir</label>

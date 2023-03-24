@@ -52,6 +52,14 @@ class HomeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function cariMR(Request $request)
+    {
+        $string = $request->get('cari2');
+        $result = vdasos::select('nama')->where('nama', '=', $string)->get();
+        return response()->json($result);
+    }
+
     public function create()
     {
         //

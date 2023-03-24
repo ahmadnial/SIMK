@@ -101,10 +101,14 @@
                                         var nama = $("#cari2").val();
                                     // alert(nama);
                                         $.ajax ({
-                                            url : '{{ url('selectMR')}}',
+                                            url : "{{ url('cariMR') }}",
                                             data : 'cari2='+cari2,
-                                            success : function (data) {
-                                                alert('tes');
+                                            success : function (result) {
+                                                var json = result,
+                                                obj = JSON.parse(json);
+                                                $("#mr").val(obj.mr);
+                                                $("#nama").val(obj.nama);
+                                             
                                             }
                                         })
                                     }

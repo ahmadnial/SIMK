@@ -29,6 +29,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/validasi', [LoginController::class, 'validasi'])->name('validasi');
 Route::post('/store', [insertController::class, 'store'])->name('store');
 Route::get('/searchMR', [HomeController::class, 'searchMR'])->name('searchMR');
+Route::get('/cariMR', [HomeController::class, 'cariMR'])->name('cariMR');
 Route::post('/dateRangeSearch', [HomeController::class, 'dateRangeSearch'])->name('dateRangeSearch');
 
 

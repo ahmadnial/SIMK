@@ -242,7 +242,8 @@
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.4.js"
             integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jQuery/3.3.1/jQuery.min.js">
+        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jQuery/3.3.1/jQuery.min.js">
+            --}}
         </script>
         {{-- <script src="{{ asset ('asset/dashboard/plugins/jquery/jquery.min.js') }}"></script> --}}
         <!-- Bootstrap 4 -->

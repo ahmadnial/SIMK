@@ -101,13 +101,21 @@
                                         var nama = $("#cari2").val();
                                     // alert(nama);
                                         $.ajax ({
+                                            type:'GET',
                                             url : "{{ url('cariMR') }}",
-                                            data : 'cari2='+cari2,
+                                            // data : 'cari2='+cari2,
+                                            data : {cari2: $('#cari2').val()},
                                             success : function (result) {
-                                                var json = result,
-                                                obj = JSON.parse(json);
-                                                $("#mr").val(obj.mr);
-                                                $("#nama").val(obj.nama);
+                                                var json = result;
+                                                obj = JSON.parse(json),
+                                                $('#mr').val(mr);
+                                                $('#nama').val(nama);
+                                                // var id_nama = document.getElementById("nama");
+                                                // id_nama.innerText = obj.nama ; 
+                                                console.log(obj);
+                                                // $("#mr").val(obj.mr);
+                                                // $("#nama").val(obj.nama);
+                                                // document.getElementById("nama").innerHTML = obj.nama;
                                              
                                             }
                                         })

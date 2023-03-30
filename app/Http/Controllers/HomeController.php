@@ -55,9 +55,11 @@ class HomeController extends Controller
 
     public function cariMR(Request $request)
     {
-        $string = $request->get('cari2');
-        $result = vdasos::select('nama')->where('nama', '=', $string)->get();
-        return response()->json($result);
+        $string =  $request->get('cari2');
+        $result = vdasos::select('mr', 'nama')->where('nama', '=', $string)->get();
+        // dd($result);
+        return $result->toJson();
+        // return response()->json($result);
     }
 
     public function create()

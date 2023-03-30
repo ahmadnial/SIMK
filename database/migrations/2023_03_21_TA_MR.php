@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('TC_MR', function (Blueprint $table) {
-            $table->id();
             $table->string('mr', 8)->unique();
             $table->string('nama');
             $table->string('sex', 8);

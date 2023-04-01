@@ -107,9 +107,10 @@
                                             data : {cari2: $('#cari2').val()},
                                             success : function (result) {
                                                 var json = result;
-                                                obj = JSON.parse(json),
-                                                $('#mr').val(mr);
-                                                $('#nama').val(nama);
+                                                obj = JSON.parse(json);
+                                                $('#mr').val(obj['0']['mr']);
+                                                $('#nama').val(obj['0']['nama']);
+                                                $('#alamat').val(obj['0']['alamat']);
                                                 // var id_nama = document.getElementById("nama");
                                                 // id_nama.innerText = obj.nama ; 
                                                 console.log(obj);
@@ -122,11 +123,6 @@
                                     }
                                     });
                                 });
-                                // function autofill() {
-                                //     var nama = $("#cari2").val();
-                                //     alert(nama);
-                                // }
-                    
                         </script>
                         {{-- <script>
                             $(function () {
